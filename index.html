@@ -5,9 +5,11 @@
   <title>Call</title>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const num = params.get("num");
+    let num = params.get("num");
 
     if (num) {
+      // Keep digits only
+      num = num.replace(/\D/g, "");
       window.location.href = "tel:" + num;
     } else {
       document.body.innerHTML = "Invalid phone number";
